@@ -27,15 +27,6 @@ input[type="button" i], input[type="submit" i], input[type="reset" i], input[typ
 input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button:hover {
     background-color: #7289DA;
 }
-button.minimize{
-  float: right:23%;
-}
-button.minimize:hover{
-  background-color: #7289DA;
-}
-button.closeWin:hover{
-  background-color: #9c1a1a;
-}
 div.right{
 	width: 0%;
 	float: right;
@@ -62,7 +53,8 @@ h3{
 	line-height: 1.125;
 	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
 }
-h4, a{    margin: 5;
+h4, a{    
+    margin: 5;
     padding: 0;
     font-size: 100%;
     font-weight: normal;
@@ -168,4 +160,8 @@ strong{
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+.mobileFiels {
+    height: 0px;
+    opacity: 0;
 }

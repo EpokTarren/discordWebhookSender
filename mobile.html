@@ -1,0 +1,157 @@
+<title>WebHook sender</title>
+<link type="text/css" rel="stylesheet" href="main.css">
+</head>
+<body bgcolor="#23272A">
+<div id="left_side">
+<strong class="main">Main</strong>
+
+<div class="toggle">
+<h3>Toggle fields</h3>
+<label class="container"><input type="checkbox" id="field_toggle"><span class="checkmark"></span></label>
+</div>
+<br><br>
+<h3>Webhook</h3>
+<input class="input" id="url" type="text" name="link" placeholder="Webhook">
+<h3>Username</h3>
+<input class="input" id="name" type="text" name="Username (nick of hook)" placeholder="nickname of the webhook">
+<h3>Avatar</h3>
+<input class="input" id="avatar" type="text" name="Avatar of bot" placeholder="image for the webhook avatar">
+<h3>Text</h3>
+<input class="input" id="content" type="text" name="msg content" placeholder="message for the webhook">
+<br><br>
+<strong>Embed</strong>
+<br><br>
+<h3>Author</h3>
+<input class="input" id="author_name" type="text" name="author name" placeholder="embed author name">
+<h3>Author Icon</h3>
+<input class="input" id="author_icon" type="text" name="author Avatar URL" placeholder="embed author avatar">
+<h3>Sidebar Color</h3>
+<input class="input" id="color" type="text" name="hex color" placeholder="#123456">
+<h3>Footer</h3>
+<input class="input" id="footer" type="text" name="footers" placeholder="embed footer">
+<h3>Footer icon</h3>
+<input class="input" id="footer_icon" type="text" name="footer_icons" placeholder="embed footer icon">
+</div>
+<div class="mobileFiels"id="right_side">
+<strong>Fields</strong>
+<br><br>
+<strong>First field</strong> <label class="container"><input type="checkbox" id="field1"><span class="checkmark"></span></label>
+<h3>First field title</h3><h1>Short</h1>
+<input class="input" id="embed_title1" type="text" name="embed_title1" placeholder="First field title">
+<h3>First field text</h3>
+<input class="input" id="embed_content1" type="text" name="embed_content1" placeholder="First field text">
+<strong>Seond field</strong> <label class="container"><input type="checkbox" id="field2"><span class="checkmark"></span></label>
+<h3>Second field title</h3><h1>Short</h1>
+<input class="input" id="embed_title2" type="text" name="embed_title2" placeholder="Second field title">
+<h3>Second field text</h3>
+<input class="input" id="embed_content2" type="text" name="embed_content2" placeholder="Second field text">
+<strong>Third field</strong> <label class="container"><input type="checkbox" id="field3"><span class="checkmark"></span></label>
+<h3>Third field text</h3><h1>Short</h1>
+<input class="input" id="embed_title3" type="text" name="embed_title3" placeholder="Third field title">
+<h3>Third field text</h3>
+<input class="input" id="embed_content3" type="text" name="embed_content3" placeholder="Third field text">
+<strong>Fourth field</strong> <label class="container"><input type="checkbox" id="field4"><span class="checkmark"></span></label>
+<h3>Fourth field title</h3><h1>Short</h1>
+<input class="input" id="embed_title4" type="text" name="embed_title4" placeholder="Fourth field title">
+<h3>Fourth field text</h3>
+<input class="input" id="embed_content4" type="text" name="embed_content4" placeholder="Fourth field text">
+<strong>Fifthfield</strong> <label class="container"><input type="checkbox" id="field5"><span class="checkmark"></span></label>
+<h3>Fifth field title</h3><h1>Short</h1>
+<input class="input" id="embed_title5" type="text" name="embed_title5" placeholder="Fifth field text">
+<h3>Fifth field text</h3>
+<input class="input" id="embed_content5" type="text" name="embed_content5" placeholder="Fifth field title">
+</div>
+<br><br>
+<div id="Bottom">
+<button id="send" class="button is-primary" onclick="send()">Send</button>
+<br><br>
+<br><br>
+<center><a>Desktop version available </a><a href="https://github.com/EpokTarren/discordWebhookSender/">here!</a></center>
+<center>
+<h4>Client made by @Tarren#9722</h4>
+<a>Report any issues on the github project page</a><a href="https://github.com/EpokTarren/discordWebhookSender">here!</a>
+</center>
+</div>
+
+</body>
+<script>
+	document.getElementById("field_toggle").onclick = function ()
+	{
+    	if (field_toggle.checked)
+    {
+        document.getElementById("right_side").style.opacity = 1;
+        document.getElementById("right_side").style.height = 650;
+    }else{
+        document.getElementById("right_side").style.opacity = 0;
+        document.getElementById("right_side").style.height = 0;
+    }
+}
+
+</script>
+<script>
+function send(){
+	if(!document.getElementById('url').value){
+		alert("You need to provide a webhook!")
+	}
+	else{
+	var hookurl = document.getElementById('url').value + "/slack"
+	var msgJson
+	if((document.getElementById('field_toggle').checked) === true){
+		msgJson = {
+		 "username": document.getElementById('name').value,
+		 "icon_url": document.getElementById('avatar').value,
+		 "text": document.getElementById('content').value,
+		 "attachments":[{
+		   "author_icon": document.getElementById('author_icon').value,
+		   "author_name": document.getElementById('author_name').value,
+		   "color": document.getElementById('color').value,
+			 "footer": document.getElementById('footer').value,
+			 "footer_icon": document.getElementById('footer_icon').value,
+		   "fields": [{
+		    "title": document.getElementById('embed_title1').value,
+		    "value": document.getElementById('embed_content1').value,
+		    "short": document.getElementById('field1').checked
+			},{
+			"title": document.getElementById('embed_title2').value,
+		    "value": document.getElementById('embed_content2').value,
+		    "short": document.getElementById('field2').checked
+			},{
+			"title": document.getElementById('embed_title3').value,
+		    "value": document.getElementById('embed_content3').value,
+		    "short": document.getElementById('field3').checked
+			},{
+			"title": document.getElementById('embed_title4').value,
+		    "value": document.getElementById('embed_content4').value,
+		    "short": document.getElementById('field4').checked
+			},{
+			"title": document.getElementById('embed_title5').value,
+		    "value": document.getElementById('embed_content5').value,
+		    "short": document.getElementById('field5').checked
+			}]
+		 }]
+		}
+	}
+	else{
+		msgJson = {
+		  "username": document.getElementById('name').value,
+		  "icon_url": document.getElementById('avatar').value,
+		  "text": document.getElementById('content').value
+		}
+	}
+  post(hookurl, msgJson);
+}
+}
+function post(url, jsonmsg){
+	xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json");
+	var data = JSON.stringify(jsonmsg);
+	xhr.send(data);
+	xhr.onreadystatechange = function() {
+		if(this.status != 200){
+			alert(this.responseText);
+		}
+	}
+}
+</script>
+</html>
