@@ -19,6 +19,8 @@
 <h3>Text</h3>
 <input class="input" id="content" type="text" name="msg content" placeholder="message for the webhook">
 <br><br>
+<button id="send" class="button is-primary" onclick="send()">Send</button>
+<br><br>
 <strong>Embed</strong>
 <br><br>
 <h3>Author</h3>
@@ -31,6 +33,10 @@
 <input class="input" id="footer" type="text" name="footers" placeholder="embed footer">
 <h3>Footer icon</h3>
 <input class="input" id="footer_icon" type="text" name="footer_icons" placeholder="embed footer icon">
+<h3>Thumbnail</h3>
+<input class="input" id="thumb" type="text" name="thumb" placeholder="Thumbnail">
+<h3>Image</h3>
+<input class="input" id="image" type="text" name="image" placeholder="Image to be included in the message">
 </div>
 <div class="mobileFiels"id="right_side">
 <strong>Fields</strong>
@@ -56,10 +62,6 @@
 <h3>Fourth field text</h3>
 <input class="input" id="embed_content4" type="text" name="embed_content4" placeholder="Fourth field text">
 <strong>Fifthfield</strong> <label class="container"><input type="checkbox" id="field5"><span class="checkmark"></span></label>
-<h3>Fifth field title</h3><h1>Short</h1>
-<input class="input" id="embed_title5" type="text" name="embed_title5" placeholder="Fifth field text">
-<h3>Fifth field text</h3>
-<input class="input" id="embed_content5" type="text" name="embed_content5" placeholder="Fifth field title">
 </div>
 <br><br>
 <div class=" " id="Bottom">
@@ -73,20 +75,6 @@
 </div>
 
 </body>
-<script>
-	document.getElementById("field_toggle").onclick = function ()
-	{
-    	if (field_toggle.checked)
-    {
-        document.getElementById("right_side").style.opacity = 1;
-        document.getElementById("right_side").style.height = 650;
-    }else{
-        document.getElementById("right_side").style.opacity = 0;
-        document.getElementById("right_side").style.height = 0;
-    }
-}
-
-</script>
 <script>
 function send(){
 	if(!document.getElementById('url').value){
@@ -104,8 +92,10 @@ function send(){
 		   "author_icon": document.getElementById('author_icon').value,
 		   "author_name": document.getElementById('author_name').value,
 		   "color": document.getElementById('color').value,
-			 "footer": document.getElementById('footer').value,
-			 "footer_icon": document.getElementById('footer_icon').value,
+			"image_url": document.getElementById('image').value,
+            "thumb_url": document.getElementById('thumb').value,
+            "footer": document.getElementById('footer').value,
+            "footer_icon": document.getElementById('footer_icon').value,
 		   "fields": [{
 		    "title": document.getElementById('embed_title1').value,
 		    "value": document.getElementById('embed_content1').value,
@@ -122,10 +112,6 @@ function send(){
 			"title": document.getElementById('embed_title4').value,
 		    "value": document.getElementById('embed_content4').value,
 		    "short": document.getElementById('field4').checked
-			},{
-			"title": document.getElementById('embed_title5').value,
-		    "value": document.getElementById('embed_content5').value,
-		    "short": document.getElementById('field5').checked
 			}]
 		 }]
 		}
