@@ -2,8 +2,37 @@
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     font-size: 30
 }
+
+strong.head{
+    font-size: 200%;
+    margin-bottom: 10px;
+}
+div.embed{
+    float: left;
+    display: none;
+    width: 95%;
+    margin: 10px;
+}
+div.toggle{
+    float: right;
+}
+strong.main{
+    float: left;
+}
+div.left{
+    float: left;
+    width: 95%;
+    margin: 10px;
+}
+
 strong, strong.main {
+    margin-top: 10px;
     color: #7289DA;
+}
+h1{
+    margin-top: 0px;
+    float: right;
+    margin-right: 110px;
 }
 h1, h3, h4, a{
     color: #fff;

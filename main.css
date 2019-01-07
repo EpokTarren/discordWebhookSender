@@ -27,10 +27,15 @@ input[type="button" i], input[type="submit" i], input[type="reset" i], input[typ
 input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button:hover {
     background-color: #7289DA;
 }
-div.right{
-	width: 0%;
-	float: right;
-    opacity: 0.0;
+strong.head{
+    font-size: 200%;
+    margin-bottom: 10px;
+}
+div.embed{
+    float: left;
+    display: none;
+    width: 100%;
+    margin: 10px;
 }
 div.toggle{
     float: right;
@@ -39,8 +44,9 @@ strong.main{
     float: left;
 }
 div.left{
-   float: left;
-	 width: 100%;
+    float: left;
+    width: 100%;
+    margin: 10px;
 }
 h3{
 	float: left;

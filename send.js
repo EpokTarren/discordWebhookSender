@@ -1,41 +1,57 @@
+function get(id){
+	return document.getElementById(id).value
+}
+function getC(id){
+	return document.getElementById(id).checked
+}
+
 function send(){
-	if(!document.getElementById('url').value){
+	if(!get('url')){
 		alert("You need to provide a webhook!")
 	}else{
-	var hookurl = document.getElementById('url').value + "/slack"
+	var hookurl = get('url') + "/slack"
 	var msgJson
-	if((document.getElementById('field_toggle').checked) === true){
+	if((getC('field_toggle')) === true){
 		msgJson = {
-		 "username": document.getElementById('name').value,
-		 "icon_url": document.getElementById('avatar').value,
-		 "text": document.getElementById('content').value,
+		 "username": get('name'),
+		 "icon_url": get('avatar'),
+		 "text": get('content'),
 		 "attachments":[{
-		   "author_icon": document.getElementById('author_icon').value,
-		   "author_name": document.getElementById('author_name').value,
-		   "color": document.getElementById('color').value,
-			"image_url": document.getElementById('image').value,
-            "thumb_url": document.getElementById('thumb').value,
-            "footer": document.getElementById('footer').value,
-            "footer_icon": document.getElementById('footer_icon').value,
+			"title": get('title'),
+            "title_link": get('title_link'),
+		   "author_icon": get('author_icon'),
+		   "author_name": get('author_name'),
+		   "author_link": get('author_link'),
+		   "color": get('color'),
+			"image_url": get('image'),
+            "thumb_url": get('thumb'),
+            "footer": get('footer'),
+			"footer_icon": get('footer_icon'),
 		   "fields": [{
-		    "title": document.getElementById('embed_title1').value,
-		    "value": document.getElementById('embed_content1').value,
-		    "short": document.getElementById('field1').checked
+		    "title": get('embed_title1'),
+		    "value": get('embed_content1'),
+		    "short": getC('field1')
 			},{
-			"title": document.getElementById('embed_title2').value,
-		    "value": document.getElementById('embed_content2').value,
-		    "short": document.getElementById('field2').checked
+			"title": get('embed_title2'),
+		    "value": get('embed_content2'),
+		    "short": getC('field2')
 			},{
-			"title": document.getElementById('embed_title3').value,
-		    "value": document.getElementById('embed_content3').value,
-		    "short": document.getElementById('field3').checked
+			"title": get('embed_title3'),
+		    "value": get('embed_content3'),
+		    "short": getC('field3')
 			},{
-			"title": document.getElementById('embed_title4').value,
-		    "value": document.getElementById('embed_content4').value,
-		    "short": document.getElementById('field4').checked
+			"title": get('embed_title4'),
+		    "value": get('embed_content4'),
+		    "short": getC('field4')
 			}
 			]
 		 }]
+		}
+	}else{
+		msgJson ={
+			"username": get('name'),
+			"icon_url": get('avatar'),
+			"text": get('content'),
 		}
 	}
   post(hookurl, msgJson);

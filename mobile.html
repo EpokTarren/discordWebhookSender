@@ -1,16 +1,17 @@
 <title>WebHook sender</title>
 <link type="text/css" rel="stylesheet" href="mobile.css">
 <script src="send.js"></script>
+<script src="toggle.js"></script>
 </head>
 <body bgcolor="#23272A">
-<label class="container"><input type="checkbox" id="field_toggle"><span class="checkmark"></span></label>
-<div id="left_side">
-<strong class="main">Main</strong>
-
+<div class="left" id="left_side">
+<strong class="head">Main</strong>
 <div class="toggle">
-<h3>Toggle fields</h3>
-<h2>This needs to be on for everything after the text field!</h2>
+<label class="container"><input type="checkbox" id="field_toggle" onclick="toggle()"><span class="checkmark"></span></label>
+<br>
+<h3>Toggle embed</h3>
 </div>
+<br><br>
 <h3>Webhook</h3>
 <input class="input" id="url" type="text" name="link" placeholder="Webhook url">
 <h3>Username</h3>
@@ -18,29 +19,30 @@
 <h3>Avatar</h3>
 <input class="input" id="avatar" type="text" name="Avatar of bot" placeholder="image for the webhook avatar">
 <h3>Text</h3>
-<input class="input" id="content" type="text" name="msg content" placeholder="message for the webhook">
-<br><br>
+<input class="input" id="content" type="text" name="msg content" placeholder="message for the webhook to send outside the embed">
 <button id="send" class="button is-primary" onclick="send()">Send</button>
+</div>
+<div class="embed" id="embed">
+<strong class="head">Embed</strong>
 <br><br>
-<strong>Embed</strong>
-<br><br>
+<h3>Title</h3>
+<input class="input" id="title" type="text" name="title" placeholder="title">
+<h3>Title URL</h3>
+<input class="input" id="title_link" type="text" name="title_link" placeholder="title url ex: https://google.com">
 <h3>Author</h3>
 <input class="input" id="author_name" type="text" name="author name" placeholder="embed author name">
 <h3>Author Icon</h3>
 <input class="input" id="author_icon" type="text" name="author Avatar URL" placeholder="embed author avatar">
+<h3>Author Link</h3>
+<input class="input" id="author_link" type="text" name="author URL" placeholder="author link">
 <h3>Sidebar Color</h3>
 <input class="input" id="color" type="text" name="hex color" placeholder="#123456">
 <h3>Footer</h3>
 <input class="input" id="footer" type="text" name="footers" placeholder="embed footer">
 <h3>Footer icon</h3>
 <input class="input" id="footer_icon" type="text" name="footer_icons" placeholder="embed footer icon">
-<h3>Thumbnail</h3>
-<input class="input" id="thumb" type="text" name="thumb" placeholder="Thumbnail">
-<h3>Image</h3>
-<input class="input" id="image" type="text" name="image" placeholder="Image to be included in the message">
-</div>
-<div class="mobileFiels"id="right_side">
-<strong>Fields</strong>
+<br><br>
+<strong class="head">Fields</strong>
 <br><br>
 <strong>First field</strong> <label class="container"><input type="checkbox" id="field1"><span class="checkmark"></span></label>
 <h3>First field title</h3><h1>Short</h1>
@@ -62,17 +64,16 @@
 <input class="input" id="embed_title4" type="text" name="embed_title4" placeholder="Fourth field title">
 <h3>Fourth field text</h3>
 <input class="input" id="embed_content4" type="text" name="embed_content4" placeholder="Fourth field text">
-<strong>Fifthfield</strong> <label class="container"><input type="checkbox" id="field5"><span class="checkmark"></span></label>
+<h3>Thumbnail</h3>
+<input class="input" id="thumb" type="text" name="thumb" placeholder="Thumbnail">
+<h3>Image</h3>
+<input class="input" id="image" type="text" name="image" placeholder="Image to be included in the message">
+<button id="send" class="button is-primary" onclick="send()" style="margin: 10px;">Send</button>
 </div>
-<br><br>
-<div class=" " id="Bottom">
-<button id="send" class="button is-primary" onclick="send()">Send</button>
 <br><br>
 <br><br>
 <center><a>Desktop version available </a><a href="https://epoktarren.github.io/discordWebhookSender/">here!</a></center>
 <center><h4>Client made by @Tarren#9722</h4></center>
-<br>
-<center><a>Report any issues on the github project page</a><a href="https://github.com/EpokTarren/discordWebhookSender/">here!</a></center>
-</div>
+<center><a>Report any issues on the github project page</a><a href="https://github.com/EpokTarren/discordWebhookSender">here!</a></center>
 </body>
 </html>
