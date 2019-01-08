@@ -1,6 +1,11 @@
  ::-webkit-scrollbar {
 display: none;
 }
+
+body{
+    margin: 20px;
+}
+
 input[type=text], select {
     width: 100%;
     padding: 4px 6px;
@@ -34,19 +39,13 @@ strong.head{
 div.embed{
     float: left;
     display: none;
-    width: 100%;
-    margin: 10px;
+    margin-bottom: 10px;
 }
 div.toggle{
     float: right;
 }
 strong.main{
     float: left;
-}
-div.left{
-    float: left;
-    width: 100%;
-    margin: 10px;
 }
 h3{
 	float: left;
